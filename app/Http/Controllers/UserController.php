@@ -73,6 +73,8 @@
 
                 }
                 $this->UserProfile();
+                $this->UserPortfolio();
+
                 return response()->json(compact('user'));
         }
 

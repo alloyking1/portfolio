@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     /**
-     * create a new users profiel
+     * create a new users profile
      * @param $reques 
      * @return object containing user profile details
     */
@@ -34,5 +34,55 @@ class ProfileController extends Controller
             'location' => $request->location,
         ]);
         return response()->json($userProfile, 200);
+    }
+
+    /**
+     * edit a users profile
+     * @param $reques 
+     * @return object edited profile
+    */
+    public function edit(Request $request){
+
+        $validator = Validator::make($request->all(),[
+            'profession' => 'required|string|max:225',
+            'description' => 'required|string',
+            'location' => 'required|max:225',
+        ]);
+
+        if($validator->fails()){
+            return response()->json($validator->errors()->toJson(), 400);
+        }
+        
+        $profileEdit = Profile::find($request->profileId);
+        $profileEdit->Profession = $request->profession;
+        $profileEdit->description = $request->description;
+        $profileEdit->location = $request->location;
+        $profileEdit->save();
+        
+        return response()->json([
+            'message'=> 'profile Edited',
+            'data' => $profileEdit,
+        ],200);
+
+    }
+
+    /**
+     * delete a users profile
+     * @param profile ID 
+     * @return message profile deleted
+    */
+    public function delete(Request $request){
+        
+        try{
+            $profileEdit = Profile::find($request->profileId)->delete();
+
+        }catch(Exception $e){
+            return response()->json($e);
+        }
+
+        return response()->json([
+            'message'=> 'profile deleted',
+        ],200);
+
     }
 }

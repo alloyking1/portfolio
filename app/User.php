@@ -52,7 +52,7 @@
          */
 
         public function UserProfile(){
-            return $this->hasOne('App\Profile','user_id');
+            return $this->hasMany('App\Profile','user_id');
         }
     }
 ?>
