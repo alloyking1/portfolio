@@ -2,14 +2,11 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
-import LanderComponent from './components/Landing';
-import CreateAccount from './components/CreateAccount';
-
 let router = new VueRouter({
-    mode: 'history',
+    // mode: 'history',
     routes:[
-        {path:'/',  name:'Landing', component:LanderComponent},
-        {path:'/register',  name:'CreateAccount', component:CreateAccount},
+        {path:'/',  name:'Landing', component: () =>import('./components/Landing')},
+        {path:'/register',  name:'CreateAccount', component: () =>import('./components/CreateAccount')},
         
     ]
 });

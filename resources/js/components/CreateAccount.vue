@@ -54,7 +54,7 @@
                                 <input class="form-control" v-model="userDetails.email" id="email" name="email" placeholder="Email" type="email">
                                 </div>
                             </div>
-                            <!-- <div class="form-group">
+                            <div class="form-group">
                                 <div class="input-group input-group-alternative">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
@@ -68,9 +68,9 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                 </div>
-                                <input class="form-control" v-model="userDetails.password-confirmed" id="password-confirmed" name="password-confirmed" placeholder="Password Confirmed" type="password">
+                                <input class="form-control" v-model="userDetails.password_confirmation" id="Password_confirmation" name="Password_confirmation" placeholder="Password Confirmed" type="password">
                                 </div>
-                            </div> -->
+                            </div>
 
 
                             <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>
@@ -98,7 +98,7 @@
 
 <script>
 
-// import { getAllUsers, getUser } from '@/api/users.api';
+import {createAccount} from '../api/register.api';
 
 export default {
     data(){
@@ -106,8 +106,8 @@ export default {
             userDetails:{
                 name:'',
                 email:'',
-                // password:'',
-                // password_confirmed:''
+                password:'',
+                password_confirmation:''
             }
         }
     },
@@ -126,7 +126,14 @@ export default {
         },
 
         register(){
-            console.log('this also works');
+           
+            createAccount(this.userDetails).then(response =>{
+                console.log(response);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+            
         }
     }
 }
