@@ -3,13 +3,14 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import LanderComponent from './components/Landing';
-import LanderComponent from './components/Register';
+import CreateAccount from './components/CreateAccount';
 
 let router = new VueRouter({
     mode: 'history',
     routes:[
-        {path:'/', component:LanderComponent, name:'Landing'},
-        {path:'/signup', component:RegisterComponent, name:'Register'},
+        {path:'/',  name:'Landing', component:LanderComponent},
+        {path:'/register',  name:'CreateAccount', component:CreateAccount},
+        
     ]
 });
 
