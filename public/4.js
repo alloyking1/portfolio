@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[4],{
 
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LoginAccount.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************!*\
@@ -123,24 +123,9 @@ __webpack_require__.r(__webpack_exports__);
       Object(_api_login_api__WEBPACK_IMPORTED_MODULE_0__["login"])(this.loginDetails).then(function (res) {
         console.log(res.data.token); // localStorage.setItem('user',JSON.stringify(res.data.user))
 
-        localStorage.setItem('jwt', res.data.token); // if (localStorage.getItem('jwt') != null){
-        //     this.$emit('loggedIn')
-        //     if(this.$route.params.nextUrl != null){
-        //         this.$router.push(this.$route.params.nextUrl)
-        //     }
-        //     else {
-        //         if(is_admin== 1){
-        //             this.$router.push('admin')
-        //         }
-        //         else {
-        //             this.$router.push('dashboard')
-        //         }
-        //     }
-        // }
+        localStorage.setItem('jwt', res.data.token);
 
-        if (localStorage.getItem('jwt')) {
-          _this.$router.push('/dashboard');
-        }
+        _this.getUser();
       })["catch"](function (err) {
         console.log(err);
       });
@@ -435,6 +420,42 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./resources/js/api/httpClient.js":
+/*!****************************************!*\
+  !*** ./resources/js/api/httpClient.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+var httpsClient = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
+  baseUrl: process.env.VUE_APP_BASE_URL,
+  timeout: 20000,
+  // indicates, 5000ms ie. 5 second
+  headers: {
+    "Content-Type": "application/json"
+  }
+}); // Adding token to request
+
+var getAuthToken = function getAuthToken() {
+  return localStorage.getItem('jwt');
+};
+
+var authInterceptor = function authInterceptor(config) {
+  config.headers['Authorization'] = getAuthToken();
+  return config;
+};
+
+httpClient.interceptors.request.use(authInterceptor);
+/* harmony default export */ __webpack_exports__["default"] = (httpsClient);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
 /***/ "./resources/js/api/login.api.js":
 /*!***************************************!*\
   !*** ./resources/js/api/login.api.js ***!
@@ -490,6 +511,58 @@ function _login() {
     }, _callee);
   }));
   return _login.apply(this, arguments);
+}
+
+/***/ }),
+
+/***/ "./resources/js/api/users.api.js":
+/*!***************************************!*\
+  !*** ./resources/js/api/users.api.js ***!
+  \***************************************/
+/*! exports provided: loginUser */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loginUser", function() { return loginUser; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _httpClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./httpClient */ "./resources/js/api/httpClient.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+function loginUser() {
+  return _loginUser.apply(this, arguments);
+}
+
+function _loginUser() {
+  _loginUser = _asyncToGenerator(
+  /*#__PURE__*/
+  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    var res;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _httpClient__WEBPACK_IMPORTED_MODULE_1__["default"].get('/api/user');
+
+          case 2:
+            res = _context.sent;
+            return _context.abrupt("return", res);
+
+          case 4:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _loginUser.apply(this, arguments);
 }
 
 /***/ }),

@@ -536,32 +536,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/api/httpClient.js":
-/*!****************************************!*\
-  !*** ./resources/js/api/httpClient.js ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
-var httpsClient = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
-  baseUrl: process.env.VUE_APP_BASE_URL,
-  timeout: 20000,
-  // indicates, 5000ms ie. 5 second
-  headers: {
-    "Content-Type": "application/json",
-    'Authorization': ""
-  }
-});
-/* harmony default export */ __webpack_exports__["default"] = (httpsClient);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
-
-/***/ }),
-
 /***/ "./resources/js/api/register.api.js":
 /*!******************************************!*\
   !*** ./resources/js/api/register.api.js ***!
