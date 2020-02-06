@@ -84,7 +84,6 @@
 
 <script>
 import {login} from '../api/login.api';
-import {loginUser} from '../api/users.api';
 
 export default {
     data(){
@@ -109,42 +108,13 @@ export default {
 
         loginAction(){
             login(this.loginDetails).then(res =>{
-                console.log(res.data.token)
-
-                // localStorage.setItem('user',JSON.stringify(res.data.user))
-                localStorage.setItem('jwt',res.data.token);
-                // if (localStorage.getItem('jwt') != null){
-                //     this.$emit('loggedIn')
-                //     if(this.$route.params.nextUrl != null){
-                //         this.$router.push(this.$route.params.nextUrl)
-                //     }
-                //     else {
-                //         if(is_admin== 1){
-                //             this.$router.push('admin')
-                //         }
-                //         else {
-                //             this.$router.push('dashboard')
-                //         }
-                //     }
-                // }
-
-                if(localStorage.getItem('jwt')){
-                    this.$router.push('/dashboard');
-                }
+                localStorage.setItem('jwt', res.data.token);
+                this.$router.push('/dashboard');
             })
             .catch(err => {
                 console.log(err);
             });
         },
-
-        getUser(){
-            loginUser().then(res => {
-                console.log(res);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-        }
     }
 }
 </script>

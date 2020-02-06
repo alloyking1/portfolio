@@ -10,7 +10,6 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _api_login_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api/login.api */ "./resources/js/api/login.api.js");
-/* harmony import */ var _api_users_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api/users.api */ "./resources/js/api/users.api.js");
 //
 //
 //
@@ -95,7 +94,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -121,33 +119,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       Object(_api_login_api__WEBPACK_IMPORTED_MODULE_0__["login"])(this.loginDetails).then(function (res) {
-        console.log(res.data.token); // localStorage.setItem('user',JSON.stringify(res.data.user))
+        localStorage.setItem('jwt', res.data.token);
 
-        localStorage.setItem('jwt', res.data.token); // if (localStorage.getItem('jwt') != null){
-        //     this.$emit('loggedIn')
-        //     if(this.$route.params.nextUrl != null){
-        //         this.$router.push(this.$route.params.nextUrl)
-        //     }
-        //     else {
-        //         if(is_admin== 1){
-        //             this.$router.push('admin')
-        //         }
-        //         else {
-        //             this.$router.push('dashboard')
-        //         }
-        //     }
-        // }
-
-        if (localStorage.getItem('jwt')) {
-          _this.$router.push('/dashboard');
-        }
-      })["catch"](function (err) {
-        console.log(err);
-      });
-    },
-    getUser: function getUser() {
-      Object(_api_users_api__WEBPACK_IMPORTED_MODULE_1__["loginUser"])().then(function (res) {
-        console.log(res);
+        _this.$router.push('/dashboard');
       })["catch"](function (err) {
         console.log(err);
       });

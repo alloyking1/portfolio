@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 
 // import the api endpoints
-import { loginUser } from "./api/users.api";
+import {fetchUser } from "./api/users.api";
 
 /*
 *   store/modules/users.module.js

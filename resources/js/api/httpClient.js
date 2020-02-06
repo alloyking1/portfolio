@@ -8,14 +8,19 @@ const httpsClient = axios.create({
     }
 });
 
-// Adding token to request
-const getAuthToken = () => localStorage.getItem('jwt');
+// Adding token to request using interceptors
+httpsClient.interceptors.request.use(
+    (config) => {
+        let token = localStorage.getItem('jwt');
+        if(token){
+            config.headers['Authorization'] = `Bearer ${token}`;
+        }
 
-const authInterceptor = (config) => {
-    config.headers['Authorization'] = getAuthToken();
-    return config;
-}
-
-httpsClient.interceptors.request.use(authInterceptor);
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
 
 export default httpsClient;
