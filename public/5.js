@@ -56,11 +56,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      user: {}
+      user: ''
     };
   },
   methods: {
@@ -69,6 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
       Object(_api_users_api__WEBPACK_IMPORTED_MODULE_0__["fetchUser"])().then(function (res) {
         _this.user = res.data.user;
+        console.log(res.data.user.user_profile);
 
         _this.$store.commit('SET_USERS', _this.user); // this.$store.dispatch("SET_USER", res.user);
 
@@ -151,39 +154,84 @@ var render = function() {
   return _c("div", [
     _c("main", [
       _c("section", { staticClass: "section section-lg" }, [
-        _c("div", { staticClass: "container padding" }, [
-          _c(
-            "div",
-            { staticClass: "row row-grid align-items-center" },
-            [
-              _c("h4", [_vm._v("Welcome " + _vm._s(this.user.name))]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go."
+        _c(
+          "div",
+          { staticClass: "container padding" },
+          [
+            _c(
+              "div",
+              { staticClass: "row row-grid align-items-center" },
+              [
+                _c("h4", [_vm._v("Welcome " + _vm._s(this.user.name))]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go."
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-icon btn-3 btn-primary",
+                    attrs: { type: "button", to: "/create/profile" }
+                  },
+                  [
+                    _c("span", { staticClass: "btn-inner--icon" }, [
+                      _c("i", { staticClass: "ni ni-bag-17" })
+                    ]),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "btn-inner--text" }, [
+                      _vm._v("Create Prfile")
+                    ])
+                  ]
                 )
-              ]),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass: "btn btn-icon btn-3 btn-primary",
-                  attrs: { type: "button", to: "/create/profile" }
-                },
-                [
-                  _c("span", { staticClass: "btn-inner--icon" }, [
-                    _c("i", { staticClass: "ni ni-bag-17" })
-                  ]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "btn-inner--text" }, [
-                    _vm._v("Create Prfile")
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm._l(_vm.user.user_profile, function(profile) {
+              return _c("div", [
+                _c("div", { staticClass: "row mt-4" }, [
+                  _c("div", { staticClass: "col-md-4 mt-4" }, [
+                    _c("div", { staticClass: "card shadow" }, [
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("h4", [_vm._v(_vm._s(profile.Profession))]),
+                        _vm._v(" "),
+                        _c("hr"),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(profile.description))]),
+                        _vm._v(" "),
+                        _c("hr"),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(profile.location))]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-outline-info",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Edit")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-outline-danger",
+                            attrs: { type: "button" }
+                          },
+                          [_vm._v("Delete")]
+                        )
+                      ])
+                    ])
                   ])
-                ]
-              )
-            ],
-            1
-          )
-        ])
+                ])
+              ])
+            })
+          ],
+          2
+        )
       ])
     ])
   ])
