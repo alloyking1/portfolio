@@ -58,11 +58,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      user: ''
+      user: '',
+      profileId: ''
     };
   },
   methods: {
@@ -78,7 +80,8 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
-    }
+    },
+    deleteProfile: function deleteProfile(profileId) {}
   },
   mounted: function mounted() {
     this.fetchUser();
@@ -196,9 +199,21 @@ var render = function() {
                   _c("div", { staticClass: "col-md-4 mt-4" }, [
                     _c("div", { staticClass: "card shadow" }, [
                       _c("div", { staticClass: "card-body" }, [
+                        _c(
+                          "span",
+                          { staticClass: "badge badge-pill badge-primary" },
+                          [_vm._v("Profession")]
+                        ),
+                        _vm._v(" "),
                         _c("h4", [_vm._v(_vm._s(profile.Profession))]),
                         _vm._v(" "),
                         _c("hr"),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "badge badge-pill badge-info" },
+                          [_vm._v("Description")]
+                        ),
                         _vm._v(" "),
                         _c("p", [_vm._v(_vm._s(profile.description))]),
                         _vm._v(" "),
@@ -284,12 +299,13 @@ httpsClient.interceptors.request.use(function (config) {
 /*!***************************************!*\
   !*** ./resources/js/api/users.api.js ***!
   \***************************************/
-/*! exports provided: fetchUser */
+/*! exports provided: fetchUser, createProfile */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createProfile", function() { return createProfile; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _httpClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./httpClient */ "./resources/js/api/httpClient.js");
@@ -328,6 +344,36 @@ function _fetchUser() {
     }, _callee);
   }));
   return _fetchUser.apply(this, arguments);
+}
+
+function createProfile(_x) {
+  return _createProfile.apply(this, arguments);
+}
+
+function _createProfile() {
+  _createProfile = _asyncToGenerator(
+  /*#__PURE__*/
+  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(profile) {
+    var res;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return _httpClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/profile/create', profile);
+
+          case 2:
+            res = _context2.sent;
+            return _context2.abrupt("return", res);
+
+          case 4:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return _createProfile.apply(this, arguments);
 }
 
 /***/ }),
