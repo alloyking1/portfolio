@@ -34,6 +34,7 @@ Route::prefix('profile')->group(function(){
 Route::prefix('portfolio')->group(function(){
     Route::post('create', 'PortfolioController@create');
     Route::post('/edit/{portfolioId}', 'PortfolioController@edit');
+    Route::get('/get/{portfolioId}', 'PortfolioController@get');
     Route::delete('/delete/{portfolioId}', 'PortfolioController@delete');
 });
 

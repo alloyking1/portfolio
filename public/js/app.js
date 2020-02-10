@@ -36709,6 +36709,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     component: function component() {
       return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./components/CreateProfile */ "./resources/js/components/CreateProfile.vue"));
     }
+  }, {
+    path: '/show/profile/edit/:propId',
+    props: true,
+    name: 'ProfileEdit',
+    component: function component() {
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./components/EditProfile */ "./resources/js/components/EditProfile.vue"));
+    }
   }]
 });
 router.beforeEach(function (to, from, next) {

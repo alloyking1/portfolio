@@ -66,6 +66,11 @@ class ProfileController extends Controller
 
     }
 
+    public function get(Request $reques){
+        $profile = Profile::find($reques->id);
+        return response()->json($profile, 200);
+    }
+
     /**
      * delete a users profile
      * @param profile ID 

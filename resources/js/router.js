@@ -10,6 +10,7 @@ let router = new VueRouter({
         {path:'/login',  name:'LoginAccount', component: () =>import('./components/LoginAccount')},
         {path:'/dashboard',  name:'Dashboard', component: () =>import('./components/Dashboard')},
         {path:'/create/profile',  name:'Profile', component: () =>import('./components/CreateProfile')},
+        {path:'/show/profile/edit/:propId', props:true, name:'ProfileEdit', component: () =>import('./components/EditProfile')},
         
     ]
 });

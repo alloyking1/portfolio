@@ -29,8 +29,8 @@
                                         <hr>
                                         <p>{{profile.location}}</p>
                                         
-                                        <button type="button" class="btn btn-outline-info">Edit</button>
-                                        <button type="button" class="btn btn-outline-danger">Delete</button>
+                                        <router-link to='/show/profile/edit/' :propId="'testing'" class="btn btn-outline-info">Edit</router-link>
+                                        <button type="button" class="btn btn-outline-danger" @click="deleteProfile(profile.id)">Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import {fetchUser} from '../api/users.api';
+import {fetchUser, deleteProfile} from '../api/users.api';
 export default {
     data(){
         return {
@@ -61,8 +61,7 @@ export default {
         fetchUser(){
             fetchUser().then(res => {
                 this.user = res.data.user;
-                console.log(res.data.user.user_profile);
-                this.$store.commit('SET_USERS', this.user);
+                // this.$store.commit('SET_USERS', this.user);
                 // this.$store.dispatch("SET_USER", res.user);
             })
             .catch(err => {
@@ -71,7 +70,14 @@ export default {
         },
 
         deleteProfile(profileId){
-            
+            if(confirm('Are you sure you want to delete this?')){
+                deleteProfile(profileId).then(res => {
+                    this.fetchUser(); //fetch updated profiles
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+            }
         }
     },
 
