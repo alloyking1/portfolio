@@ -66,7 +66,8 @@ class ProfileController extends Controller
 
     }
 
-    public function get(Request $reques){
+    public function get(Request $request){
+        dd($request->id);
         $profile = Profile::find($reques->id);
         return response()->json($profile, 200);
     }

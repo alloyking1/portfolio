@@ -59,12 +59,76 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       user: '',
-      profileId: ''
+      profileId: '',
+      profile: {
+        profession: '',
+        description: '',
+        location: ''
+      }
     };
   },
   methods: {
@@ -89,6 +153,11 @@ __webpack_require__.r(__webpack_exports__);
           console.log(err);
         });
       }
+    },
+    fetEditProfile: function fetEditProfile(profileId) {
+      Object(_api_users_api__WEBPACK_IMPORTED_MODULE_0__["getEditProfile"])(profileId).then(function (res) {
+        console.log(res.data);
+      });
     }
   },
   mounted: function mounted() {
@@ -206,60 +275,60 @@ var render = function() {
                 _c("div", { staticClass: "row mt-4" }, [
                   _c("div", { staticClass: "col-md-4 mt-4" }, [
                     _c("div", { staticClass: "card shadow" }, [
-                      _c(
-                        "div",
-                        { staticClass: "card-body" },
-                        [
-                          _c(
-                            "span",
-                            { staticClass: "badge badge-pill badge-primary" },
-                            [_vm._v("Profession")]
-                          ),
-                          _vm._v(" "),
-                          _c("h4", [_vm._v(_vm._s(profile.Profession))]),
-                          _vm._v(" "),
-                          _c("hr"),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            { staticClass: "badge badge-pill badge-info" },
-                            [_vm._v("Description")]
-                          ),
-                          _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(profile.description))]),
-                          _vm._v(" "),
-                          _c("hr"),
-                          _vm._v(" "),
-                          _c("p", [_vm._v(_vm._s(profile.location))]),
-                          _vm._v(" "),
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "btn btn-outline-info",
-                              attrs: {
-                                to: "/show/profile/edit/",
-                                propId: "testing"
-                              }
+                      _c("div", { staticClass: "card-body" }, [
+                        _c(
+                          "span",
+                          { staticClass: "badge badge-pill badge-primary" },
+                          [_vm._v("Profession")]
+                        ),
+                        _vm._v(" "),
+                        _c("h4", [_vm._v(_vm._s(profile.Profession))]),
+                        _vm._v(" "),
+                        _c("hr"),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "badge badge-pill badge-info" },
+                          [_vm._v("Description")]
+                        ),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(profile.description))]),
+                        _vm._v(" "),
+                        _c("hr"),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(profile.location))]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-outline-info",
+                            attrs: {
+                              "data-toggle": "modal",
+                              "data-target": "#exampleModal"
                             },
-                            [_vm._v("Edit")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-outline-danger",
-                              attrs: { type: "button" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.deleteProfile(profile.id)
-                                }
+                            on: {
+                              click: function($event) {
+                                return _vm.fetEditProfile(profile.id)
                               }
-                            },
-                            [_vm._v("Delete")]
-                          )
-                        ],
-                        1
-                      )
+                            }
+                          },
+                          [_vm._v("Edit")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-outline-danger",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteProfile(profile.id)
+                              }
+                            }
+                          },
+                          [_vm._v("Delete")]
+                        )
+                      ])
                     ])
                   ])
                 ])
@@ -268,11 +337,279 @@ var render = function() {
           ],
           2
         )
+      ]),
+      _vm._v(" "),
+      _c("section", [
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: {
+              id: "exampleModal",
+              tabindex: "-1",
+              role: "dialog",
+              "aria-labelledby": "exampleModalLabel",
+              "aria-hidden": "true"
+            }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "modal-dialog", attrs: { role: "document" } },
+              [
+                _c("div", { staticClass: "modal-content" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("form", [
+                      _c("form", { attrs: { role: "form" } }, [
+                        _c("div", { staticClass: "form-group mb-3" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "input-group input-group-alternative"
+                            },
+                            [
+                              _vm._m(1),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.profile.profession,
+                                    expression: "profile.profession"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  placeholder: "Profession",
+                                  id: "profession",
+                                  type: "text",
+                                  name: "profession"
+                                },
+                                domProps: { value: _vm.profile.profession },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.profile,
+                                      "profession",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group mb-3" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "input-group input-group-alternative"
+                            },
+                            [
+                              _vm._m(2),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.profile.location,
+                                    expression: "profile.location"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  placeholder: "Location",
+                                  type: "text",
+                                  name: "location"
+                                },
+                                domProps: { value: _vm.profile.location },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.profile,
+                                      "location",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "input-group input-group-alternative"
+                            },
+                            [
+                              _vm._m(3),
+                              _vm._v(" "),
+                              _c("textarea", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.profile.description,
+                                    expression: "profile.description"
+                                  }
+                                ],
+                                attrs: {
+                                  name: "description",
+                                  id: "",
+                                  cols: "50",
+                                  rows: "10",
+                                  placeholder: "description"
+                                },
+                                domProps: { value: _vm.profile.description },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.profile,
+                                      "description",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(4)
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(5)
+                ])
+              ]
+            )
+          ]
+        )
       ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Edit Profile")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "ni ni-email-83" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "ni ni-email-83" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("span", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "ni ni-lock-circle-open" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "custom-control custom-control-alternative custom-checkbox"
+      },
+      [
+        _c("input", {
+          staticClass: "custom-control-input",
+          attrs: { id: " customCheckLogin", type: "checkbox" }
+        }),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass: "custom-control-label",
+            attrs: { for: " customCheckLogin" }
+          },
+          [_c("span", [_vm._v("Remember me")])]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        [_vm._v("Save changes")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -320,7 +657,7 @@ httpsClient.interceptors.request.use(function (config) {
 /*!***************************************!*\
   !*** ./resources/js/api/users.api.js ***!
   \***************************************/
-/*! exports provided: fetchUser, createProfile, getProfile, deleteProfile */
+/*! exports provided: fetchUser, createProfile, getProfile, deleteProfile, getEditProfile, editProfile */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -329,6 +666,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createProfile", function() { return createProfile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProfile", function() { return getProfile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteProfile", function() { return deleteProfile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEditProfile", function() { return getEditProfile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editProfile", function() { return editProfile; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _httpClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./httpClient */ "./resources/js/api/httpClient.js");
@@ -453,6 +792,56 @@ function _deleteProfile() {
     }, _callee4);
   }));
   return _deleteProfile.apply(this, arguments);
+}
+
+function getEditProfile(_x4) {
+  return _getEditProfile.apply(this, arguments);
+}
+
+function _getEditProfile() {
+  _getEditProfile = _asyncToGenerator(
+  /*#__PURE__*/
+  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(postId) {
+    var res;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            res = _httpClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/profile/edit/get/' + postId);
+
+          case 1:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+  return _getEditProfile.apply(this, arguments);
+}
+
+function editProfile(_x5, _x6) {
+  return _editProfile.apply(this, arguments);
+}
+
+function _editProfile() {
+  _editProfile = _asyncToGenerator(
+  /*#__PURE__*/
+  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(profileId, profile) {
+    var res;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            res = _httpClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/profile/edit' + profileId, profile);
+
+          case 1:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6);
+  }));
+  return _editProfile.apply(this, arguments);
 }
 
 /***/ }),

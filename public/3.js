@@ -382,7 +382,7 @@ httpsClient.interceptors.request.use(function (config) {
 /*!***************************************!*\
   !*** ./resources/js/api/users.api.js ***!
   \***************************************/
-/*! exports provided: fetchUser, createProfile, getProfile, deleteProfile */
+/*! exports provided: fetchUser, createProfile, getProfile, deleteProfile, getEditProfile, editProfile */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -391,6 +391,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createProfile", function() { return createProfile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProfile", function() { return getProfile; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteProfile", function() { return deleteProfile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEditProfile", function() { return getEditProfile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editProfile", function() { return editProfile; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _httpClient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./httpClient */ "./resources/js/api/httpClient.js");
@@ -515,6 +517,56 @@ function _deleteProfile() {
     }, _callee4);
   }));
   return _deleteProfile.apply(this, arguments);
+}
+
+function getEditProfile(_x4) {
+  return _getEditProfile.apply(this, arguments);
+}
+
+function _getEditProfile() {
+  _getEditProfile = _asyncToGenerator(
+  /*#__PURE__*/
+  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(postId) {
+    var res;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+      while (1) {
+        switch (_context5.prev = _context5.next) {
+          case 0:
+            res = _httpClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/profile/edit/get/' + postId);
+
+          case 1:
+          case "end":
+            return _context5.stop();
+        }
+      }
+    }, _callee5);
+  }));
+  return _getEditProfile.apply(this, arguments);
+}
+
+function editProfile(_x5, _x6) {
+  return _editProfile.apply(this, arguments);
+}
+
+function _editProfile() {
+  _editProfile = _asyncToGenerator(
+  /*#__PURE__*/
+  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(profileId, profile) {
+    var res;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            res = _httpClient__WEBPACK_IMPORTED_MODULE_1__["default"].post('/api/profile/edit' + profileId, profile);
+
+          case 1:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6);
+  }));
+  return _editProfile.apply(this, arguments);
 }
 
 /***/ }),

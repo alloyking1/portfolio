@@ -29,7 +29,7 @@
                                         <hr>
                                         <p>{{profile.location}}</p>
                                         
-                                        <router-link to='/show/profile/edit/' :propId="'testing'" class="btn btn-outline-info">Edit</router-link>
+                                        <button class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal" @click="fetEditProfile(profile.id)">Edit</button>
                                         <button type="button" class="btn btn-outline-danger" @click="deleteProfile(profile.id)">Delete</button>
                                     </div>
                                 </div>
@@ -41,6 +41,65 @@
                 </div>
             </section>
 
+            <section>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- ..form starts here -->
+                        <form>
+                            <form role="form">
+                                    <div class="form-group mb-3">
+                                        <div class="input-group input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                            </div>
+                                            <input class="form-control" placeholder="Profession" id="profession" v-model="profile.profession" type="text" name="profession">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <div class="input-group input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                            </div>
+                                            <input class="form-control" placeholder="Location" type="text" name="location" v-model="profile.location">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                            </div>
+                                            <!-- <input class="form-control" placeholder="Password" type="password"> -->
+                                            <textarea name="description" id="" cols="50" rows="10" placeholder="description" v-model="profile.description"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="custom-control custom-control-alternative custom-checkbox">
+                                        <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
+                                        <label class="custom-control-label" for=" customCheckLogin"><span>Remember me</span></label>
+                                    </div>
+
+                                </form>
+                        </form>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </section>
 
             
         </main>
@@ -48,12 +107,18 @@
 </template>
 
 <script>
-import {fetchUser, deleteProfile} from '../api/users.api';
+import {fetchUser, deleteProfile, getEditProfile} from '../api/users.api';
 export default {
     data(){
         return {
             user:'',
-            profileId:''
+            profileId:'',
+
+            profile:{
+                profession:'',
+                description:'',
+                location:'',
+            }
         }
     },
 
@@ -78,6 +143,13 @@ export default {
                     console.log(err);
                 })
             }
+        },
+
+        fetEditProfile(profileId){
+            getEditProfile(profileId)
+            .then(res => {
+                console.log(res.data)
+            })
         }
     },
 

@@ -36700,7 +36700,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/dashboard',
     name: 'Dashboard',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./components/Dashboard */ "./resources/js/components/Dashboard.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./components/Dashboard */ "./resources/js/components/Dashboard.vue"));
     }
   }, {
     path: '/create/profile',

@@ -19,3 +19,11 @@ export async function deleteProfile(postId){
     const res = httpClient.delete('/api/profile/delete/'+postId);
     return res;
 }
+
+export async function getEditProfile(postId){
+    const res = httpClient.post('/api/profile/edit/get/'+postId);
+} 
+
+export async function editProfile(profileId, profile){
+    const res = httpClient.post('/api/profile/edit'+profileId, profile);
+} 
