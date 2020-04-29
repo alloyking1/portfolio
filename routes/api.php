@@ -28,12 +28,14 @@ Route::get('logout', 'UserController@logout');
 Route::prefix('profile')->group(function(){
     Route::post('/create', 'ProfileController@create');
     Route::post('/edit/{profileId}', 'ProfileController@edit');
+    Route::post('/edit/get/{profileId}', 'ProfileController@get');
     Route::delete('/delete/{profileId}', 'ProfileController@delete');
 });
 
 Route::prefix('portfolio')->group(function(){
     Route::post('create', 'PortfolioController@create');
     Route::post('/edit/{portfolioId}', 'PortfolioController@edit');
+    Route::get('/get/{portfolioId}', 'PortfolioController@get');
     Route::delete('/delete/{portfolioId}', 'PortfolioController@delete');
 });
 

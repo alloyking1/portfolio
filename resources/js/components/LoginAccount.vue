@@ -99,7 +99,7 @@ export default {
         validate(){
              for (var key in this.loginDetails) {   
                 if(this.loginDetails[key] === ""){
-                    console.log(key+' '+'fiel is required');
+                    console.log(key+' '+'field  is required');
                     return false;
                 }
             }

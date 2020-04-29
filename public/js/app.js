@@ -36596,15 +36596,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************!*\
   !*** ./resources/js/components/structure/Nav.vue ***!
   \***************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Nav_vue_vue_type_template_id_bf23caa8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Nav.vue?vue&type=template&id=bf23caa8& */ "./resources/js/components/structure/Nav.vue?vue&type=template&id=bf23caa8&");
 /* harmony import */ var _Nav_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nav.vue?vue&type=script&lang=js& */ "./resources/js/components/structure/Nav.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Nav_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Nav_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -36634,7 +36633,7 @@ component.options.__file = "resources/js/components/structure/Nav.vue"
 /*!****************************************************************************!*\
   !*** ./resources/js/components/structure/Nav.vue?vue&type=script&lang=js& ***!
   \****************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36683,25 +36682,38 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/',
     name: 'Landing',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./components/Landing */ "./resources/js/components/Landing.vue"));
+      return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./components/Landing */ "./resources/js/components/Landing.vue"));
     }
   }, {
     path: '/register',
     name: 'CreateAccount',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./components/CreateAccount */ "./resources/js/components/CreateAccount.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./components/CreateAccount */ "./resources/js/components/CreateAccount.vue"));
     }
   }, {
     path: '/login',
     name: 'LoginAccount',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./components/LoginAccount */ "./resources/js/components/LoginAccount.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./components/LoginAccount */ "./resources/js/components/LoginAccount.vue"));
     }
   }, {
     path: '/dashboard',
     name: 'Dashboard',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./components/Dashboard */ "./resources/js/components/Dashboard.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./components/Dashboard */ "./resources/js/components/Dashboard.vue"));
+    }
+  }, {
+    path: '/create/profile',
+    name: 'Profile',
+    component: function component() {
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./components/CreateProfile */ "./resources/js/components/CreateProfile.vue"));
+    }
+  }, {
+    path: '/show/profile/edit/:propId',
+    props: true,
+    name: 'ProfileEdit',
+    component: function component() {
+      return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./components/EditProfile */ "./resources/js/components/EditProfile.vue"));
     }
   }]
 });
@@ -36831,8 +36843,8 @@ var actions = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\User\Desktop\desktop\coding\moses\projects\AdvancePortfolio\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\User\Desktop\desktop\coding\moses\projects\AdvancePortfolio\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\User\Desktop\desktop\projects_new\z_projects\AdvancePortfolio\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\User\Desktop\desktop\projects_new\z_projects\AdvancePortfolio\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
